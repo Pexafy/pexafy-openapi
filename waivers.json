@@ -1,0 +1,10 @@
+{
+  "waivers": [
+    {
+      "code": "enum.value.added",
+      "location": "/components/schemas/Source",
+      "reason": "Wikimedia Commons was indexed in 1.3.0, so Source gained a value. Breaking for consumers whose client type is a closed set, which is why it was announced in the 1.2.0 release notes and why the schema has carried x-extensible-enum since 1.2.0. Source is the one component this will keep happening to.",
+      "expires": "2027-08-01"
+    }
+  ]
+}

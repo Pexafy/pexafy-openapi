@@ -1,0 +1,47 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: ["3.10", "3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+          cache: pip
+      - run: pip install -e ".[dev]"
+      - run: ruff check .
+      - run: pytest -q
+
+  description:
+    # The description is held to the same rules as anybody else's. A breaking
+    # change is allowed through only if waivers.json says somebody decided to
+    # make it, which is also why this job cannot be satisfied by editing the
+    # baseline.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -e .
+      - run: pexafy-openapi lint openapi/v1.json --fail-on notable
+      - run: |
+          pexafy-openapi check openapi/v1.json \
+            --baseline openapi/releases/1.2.0.json \
+            --waivers waivers.json \
+            --strict
+      # Non-zero here means a breaking change exists, which the step above has
+      # already decided is acceptable. This one only writes the summary.
+      - run: |
+          pexafy-openapi diff openapi/releases/1.2.0.json openapi/v1.json \
+            --format markdown >> "$GITHUB_STEP_SUMMARY" || true

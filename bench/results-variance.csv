@@ -1,0 +1,29 @@
+edit,position,variance_verdict,heuristic_verdict,outcome,code
+add required property,request,breaking,safe,"wrong, quiet",property.added.required
+add required property,response,safe,safe,agree,property.added.required
+add optional property,request,safe,safe,agree,property.added.optional
+add optional property,response,safe,safe,agree,property.added.optional
+remove property,request,safe,breaking,"wrong, loud",property.removed
+remove property,response,breaking,breaking,agree,property.removed
+optional becomes required,request,breaking,breaking,agree,property.became.required
+optional becomes required,response,safe,breaking,"wrong, loud",property.became.required
+required becomes optional,request,safe,safe,agree,property.became.optional
+required becomes optional,response,breaking,safe,"wrong, quiet",property.became.optional
+add enum value,request,safe,safe,agree,enum.value.added
+add enum value,response,breaking,safe,"wrong, quiet",enum.value.added
+remove enum value,request,breaking,breaking,agree,enum.value.removed
+remove enum value,response,safe,breaking,"wrong, loud",enum.value.removed
+widen type,request,safe,safe,agree,type.widened
+widen type,response,breaking,safe,"wrong, quiet",type.widened
+narrow type,request,breaking,breaking,agree,enum.introduced
+narrow type,response,safe,breaking,"wrong, loud",enum.introduced
+allow null,request,safe,safe,agree,nullable.added
+allow null,response,breaking,safe,"wrong, quiet",nullable.added
+relax maxLength,request,safe,safe,agree,bound.relaxed
+relax maxLength,response,safe,safe,agree,bound.relaxed
+tighten maxLength,request,breaking,breaking,agree,bound.tightened
+tighten maxLength,response,safe,breaking,"wrong, loud",bound.tightened
+forbid unknown keys,request,breaking,breaking,agree,additional_properties.closed
+forbid unknown keys,response,safe,breaking,"wrong, loud",additional_properties.closed
+int32 to int64,request,safe,safe,agree,format.changed
+int32 to int64,response,breaking,safe,"wrong, quiet",format.changed
