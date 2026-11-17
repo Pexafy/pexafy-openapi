@@ -1,8 +1,8 @@
 {
   "openapi": "3.1.0",
   "info": {
-    "title": "Pexafy API",
-    "version": "1.3.0",
+    "title": "Pexafy Stock Photos API",
+    "version": "1.3.1",
     "summary": "Semantic search over a catalogue of freely licensed stock photography.",
     "description": "Search runs on meaning rather than keywords, so queries read like sentences and filters narrow what the ranking already found.\n\nEvery response is an envelope: `success`, then `data`, then `pagination` on the list endpoints and `meta` everywhere. Failures use the same envelope with an `error` object whose `code` is stable across versions. Branch on the code, never on the message.\n\nEnums marked `x-extensible-enum` grow between releases. Parse them as open strings; a client whose type is a closed set will fail the day a value is added.",
     "license": {

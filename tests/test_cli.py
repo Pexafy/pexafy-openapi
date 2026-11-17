@@ -118,4 +118,4 @@ def test_stats_reports_the_shape_of_the_published_description(spec_dir, capsys):
     assert main(["stats", str(spec_dir / "v1.json"), "--format", "json"]) == 0
     payload = json.loads(capsys.readouterr().out)
     assert payload["operations"] > 10
-    assert payload["version"] == "1.3.0"
+    assert payload["version"] == "1.3.1"

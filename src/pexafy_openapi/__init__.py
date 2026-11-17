@@ -9,7 +9,7 @@
 
 from __future__ import annotations
 
-__version__ = "1.3.0"
+__version__ = "1.3.1"
 
 from .diff import Change, DiffReport, diff
 from .document import Document, Operation, escape, inline_refs, resolve_pointer, unescape

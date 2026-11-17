@@ -4,6 +4,11 @@ Versions here are versions of the API description. The tooling ships with the
 same number so that a pinned version of the package always understands the
 description it was released beside.
 
+## 1.3.1
+
+The API is now called Pexafy Stock Photos API, so `info.title` says so. Nothing
+else in the description moved, and the tooling is the same.
+
 ## 1.3.0
 
 Wikimedia Commons is indexed, so `Source` gained `wikimedia`. This is a

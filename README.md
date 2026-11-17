@@ -1,10 +1,10 @@
 # pexafy-openapi
 
-The public OpenAPI description of the Pexafy API, versioned, plus the tool that
-stops it from lying. The tool exists because the usual question, did this
-release break anybody, has an answer that flips depending on whether the schema
-you edited sits under a request or under a response, and almost nothing checks
-which.
+The public OpenAPI description of the Pexafy Stock Photos API, versioned, plus
+the tool that stops it from lying. The tool exists because the usual question,
+did this release break anybody, has an answer that flips depending on whether
+the schema you edited sits under a request or under a response, and almost
+nothing checks which.
 
 Adding a value to an enum is the example everybody gets wrong. In a request it
 is additive: one more thing the server accepts. In a response it is breaking,
